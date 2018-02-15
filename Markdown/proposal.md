@@ -1,5 +1,5 @@
 ## Goal
-Create a basic terminal like interface that allows a user to traverse their file structure using simple commands such as `cd` and `ls`, `pwd`, `mkdir`,
+Create a basic terminal like interface that allows a user to traverse their file structure using simple commands such as `cd`, `ls`, `pwd` and `mkdir`,
  
 ## Stretch Goal
 Implement more advanced commands such as `grep`, `wc`, `sed`, `>`, `>>`, `command &`. Another stretch goal would have our commands work when files are large enough that we can’t fit the entire thing into RAM (or, in the case our RAM is incredibly limited)
