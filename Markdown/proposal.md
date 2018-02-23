@@ -1,5 +1,5 @@
-#Basic Bash Project Proposal
-##David Abrahams and Will Thorbecke
+# Basic Bash Project Proposal
+## David Abrahams and Will Thorbecke
 
 ## Goal
 Create a basic terminal like interface that allows a user to traverse their file structure using simple commands such as `cd`, `ls`, `pwd` and `mkdir`,
