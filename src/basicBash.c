@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
+#include "../include/loop.h"
 
 char* concat(const char *s1, const char *s2) {
   char *result = malloc(strlen(s1)+strlen(s2)+1);
@@ -37,8 +38,6 @@ void cd(char *loc) {
 
 
 int main(void) {
-  char *newLoc = "..";
-  cd(newLoc);
-  ls();
+  loop();
   return(0);
 }
