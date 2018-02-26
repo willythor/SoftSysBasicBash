@@ -4,13 +4,13 @@
 
 int matcher(char *input) {
   if (strcmp(input, "quit") == 0) {
-    return quit;
+    return QUIT;
   }
   if (strncmp(input, "cd", 2) == 0) {
-    return cd;
+    return CD;
   }
   if (strncmp(input, "ls", 2) == 0) {
-    return ls;
+    return LS;
   }
   return 1;
 }
