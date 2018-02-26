@@ -1,2 +1,2 @@
-typedef enum {quit, cd, ls} inputs;
+typedef enum {QUIT, CD, LS} inputs;
 int matcher(char *input);
