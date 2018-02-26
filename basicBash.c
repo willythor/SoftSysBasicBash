@@ -1,13 +1,22 @@
 #include <dirent.h> 
 #include <stdio.h> 
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
 
-/*
- * This program displays the names of all files in the current directory.
- */
-void ls(){
+char* concat(const char *s1, const char *s2) {
+  char *result = malloc(strlen(s1)+strlen(s2)+1);
+  strcpy(result, s1);
+  strcat(result, s2);
+  return result;
+}
+
+
+void Ls() {
   DIR *d;
   struct dirent *dir;
   d = opendir(".");
+
   if (d) {
     while ((dir = readdir(d)) != NULL) {
       printf("%s\n", dir->d_name);
@@ -16,7 +25,20 @@ void ls(){
   }
 }
 
+
+void Cd(char *loc) {
+  char *curLoc = "./";
+  char *directory = concat(curLoc, loc);
+  int ret;
+  
+  ret = chdir(directory);
+  printf("%d", ret);
+}
+
+
 int main(void) {
-  ls();
+  char *newLoc = "..";
+  Cd(newLoc);
+  Ls();
   return(0);
 }
