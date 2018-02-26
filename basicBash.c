@@ -12,7 +12,7 @@ char* concat(const char *s1, const char *s2) {
 }
 
 
-void Ls() {
+void ls() {
   DIR *d;
   struct dirent *dir;
   d = opendir(".");
@@ -26,7 +26,7 @@ void Ls() {
 }
 
 
-void Cd(char *loc) {
+void cd(char *loc) {
   char *curLoc = "./";
   char *directory = concat(curLoc, loc);
   int ret;
@@ -38,7 +38,7 @@ void Cd(char *loc) {
 
 int main(void) {
   char *newLoc = "..";
-  Cd(newLoc);
-  Ls();
+  cd(newLoc);
+  ls();
   return(0);
 }
