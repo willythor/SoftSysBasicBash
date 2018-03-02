@@ -29,13 +29,14 @@ int ls() {
 }
 
 
-void cd(char *loc) {
+int cd(char *loc) {
   char *curLoc = "./";
   char *directory = concat(curLoc, loc);
-  int ret;
+  int success;
   
-  ret = chdir(directory);
-  printf("%d", ret);
+  success = chdir(directory);
+  free(directory);
+  return (success == 0) ? SUCCESS : FAILURE;
 }
 
 
