@@ -45,6 +45,11 @@ int cd(char *loc) {
   if (loc == NULL) return FAILURE;
 
   char *curLoc = "./";
+  if (loc == NULL){
+  //  printf("%s\n","not enough arguements");
+    return;
+  }
+
   char *directory = concat(curLoc, loc);
   int success;
   
