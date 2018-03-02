@@ -13,6 +13,18 @@ char* concat(const char *s1, const char *s2) {
   return result;
 }
 
+
+void displayDirectoryName(int newLine) {
+  char cwd[1024];
+
+  if (newLine) {
+    printf("%s\n",concat(concat("willAndDave@basicBash:~", getcwd(cwd, sizeof(cwd))),"$ "));
+  }
+  else {
+    printf("%s",concat(concat("willAndDave@basicBash:~", getcwd(cwd, sizeof(cwd))),"$ "));
+  }
+}
+
 int ls() {
   DIR *d;
   struct dirent *dir;
@@ -31,6 +43,11 @@ int ls() {
 
 int cd(char *loc) {
   char *curLoc = "./";
+  if (loc == NULL){
+  //  printf("%s\n","not enough arguements");
+    return;
+  }
+
   char *directory = concat(curLoc, loc);
   int success;
   
