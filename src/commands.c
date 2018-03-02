@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../include/error.h"
+
 char* concat(const char *s1, const char *s2) {
   char *result = malloc(strlen(s1)+strlen(s2)+1);
   strcpy(result, s1);
@@ -22,7 +24,7 @@ void displayDirectoryName(int newLine) {
   }
 }
 
-void ls() {
+int ls() {
   DIR *d;
   struct dirent *dir;
   d = opendir(".");
@@ -32,20 +34,24 @@ void ls() {
       printf("%s\n", dir->d_name);
     }
     closedir(d);
+    return SUCCESS;
   }
+  return FAILURE;
 }
 
 
-void cd(char *loc) {
+int cd(char *loc) {
   char *curLoc = "./";
   if (loc == NULL){
-  //  printf("%s\n","not enough arguements");
     return;
   }
 
   char *directory = concat(curLoc, loc);
-
-  chdir(directory);
+  int success;
+  
+  success = chdir(directory);
+  free(directory);
+  return (success == 0) ? SUCCESS : FAILURE;
 }
 
 

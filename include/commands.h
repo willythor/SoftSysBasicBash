@@ -3,8 +3,8 @@ char* concat(const char *s1, const char *s2);
 
 char* displayDirectoryName(int newLine);
 
-void ls();
+int ls();
 
-void cd(char *loc);
+int cd(char *loc);
 
 
