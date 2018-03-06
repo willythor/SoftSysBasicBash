@@ -1,5 +1,18 @@
+#include <stdlib.h>
 #include <string.h>
+
 #include "../include/matcher.h"
+
+
+/**
+ * @param p a pointer to a char*
+ */
+void double_string_size(char **p, int oldlen) {
+  char *oldstring = *p;
+  char *newstring = malloc(sizeof(char) * oldlen * 2);
+  strcpy(newstring, oldstring);
+  *p = newstring;
+}
 
 int matcher(char *input) {
   if (strcmp(input, "quit") == 0) {
