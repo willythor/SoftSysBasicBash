@@ -4,6 +4,23 @@
 #include "../include/matcher.h"
 
 
+char* first_substring(char *s, char **tokens, int numtokens) {
+  int slen = strlen(s); // doesn't include null-term
+  char *substring = malloc(sizeof(char) * slen);
+  for (int i = 0; i <= slen; i++) {
+    for (int j = 0; j < numtokens; j++) {
+      char *token = tokens[j];
+      int tokenlen = strlen(token);
+      if (strncmp(token, s + i, tokenlen) == 0) {
+        substring[i] = '\0';
+        return substring;
+      }
+    }
+    substring[i] = s[i];
+  }
+  return substring;
+}
+
 /**
  * @param p a pointer to a char*
  */
