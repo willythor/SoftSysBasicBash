@@ -7,7 +7,7 @@ SOURCES = $(wildcard $(SRC_DIR)/*.c) # get all .c files in the SRC_DIR
 # create corresponding object files list
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-CFLAGS = -g -Wall
+CFLAGS = -g -std=c11 -Wall -Wextra -pedantic
 
 # all, directories are not actually files we will create
 .PHONY: all directories
