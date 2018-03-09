@@ -25,8 +25,10 @@ A tutorial on writing your own Bash shell: https://brennan.io/2015/01/16/write-a
 Another tutorial: https://www.geeksforgeeks.org/making-linux-shell-c/
  
 And this: https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf
+ 
+We also furiously googled while making the makefile. There wasn’t any one resource we used for this. We knew what we wanted, and used a combination of make docs and stack overflow until we understand our build system, and were satisfied with it.
 
-##Current Tasks 
-1. Better matching for user input ?? (David)
+## Current Tasks 
+1. Better matching for user input: We would like to be able to chain commands together, and to not have to adhere to specific syntax (ie, `ls` must be first two characters entered) in order for our shell to work. One our shell accepts variable amounts of whitespace, as well as chaining via pipes, this task will be done. (David)
 2. Write a function that allows a user to click `tab` such that it completes their input to match a file or folder in their current directory. (Will)
 3. Add the bash command `touch` that will let a user enter `touch <file_name>` in order to create a new file in the current directory with the given name. (Will)
