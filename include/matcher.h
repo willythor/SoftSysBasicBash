@@ -1,2 +1,7 @@
 typedef enum {QUIT, CD, LS} inputs;
-int matcher(char *input);
+int getCommands(
+    char *userInput,
+    char **tokens,
+    int numtokens,
+    char **commands
+    );
