@@ -14,24 +14,26 @@ void loop() {
   char *input;
   displayDirectoryName(0);
   int success;
-  while (matcher(input = readLine()) != QUIT) {
-    success = SUCCESS;
-    if (matcher(input) == LS) {
-      if (ls() == FAILURE) {
-        success = FAILURE;
-      }
-      displayDirectoryName(0);
-    } else if (matcher(input) == CD) {
-      strsep(&input," ");
-      if (cd(strsep(&input," ")) == FAILURE) success = FAILURE;
-      displayDirectoryName(0);
-    } else if (matcher(input) != QUIT) success = FAILURE;
+  input = readLine();
+  process_command(input);
+  // while (matcher(input = readLine()) != QUIT) {
+  //   success = SUCCESS;
+  //   if (matcher(input) == LS) {
+  //     if (ls() == FAILURE) {
+  //       success = FAILURE;
+  //     }
+  //     displayDirectoryName(0);
+  //   } else if (matcher(input) == CD) {
+  //     strsep(&input," ");
+  //     if (cd(strsep(&input," ")) == FAILURE) success = FAILURE;
+  //     displayDirectoryName(0);
+  //   } else if (matcher(input) != QUIT) success = FAILURE;
 
-    // handle invalid input
-    if (success == FAILURE) {
-      printf("Invalid command: %s\n", input);
-      displayDirectoryName(0);
-    }
-  }
-  printf("QUIT");
+  //   // handle invalid input
+  //   if (success == FAILURE) {
+  //     printf("Invalid command: %s\n", input);
+  //     displayDirectoryName(0);
+  //   }
+  // }
+  // printf("QUIT");
 }

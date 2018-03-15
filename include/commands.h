@@ -5,5 +5,6 @@ int ls();
 char* displayDirectoryName(int newLine);
 
 int cd(char *loc);
+void process_command(char *command);
 
 

@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "../include/error.h"
+#include "../include/matcher.h"
 
 char* concat(const char *s1, const char *s2) {
   char *result = malloc(strlen(s1)+strlen(s2)+1);
@@ -12,6 +13,27 @@ char* concat(const char *s1, const char *s2) {
   strcat(result, s2);
   return result;
 }
+
+
+void process_command(char *command) {
+  char *commands[1024];
+  int numTokens = 1;
+  char *tokens[1] = {"|"}; // TODO: implement more tokens
+  int numCommands = getCommands(command, tokens, numTokens, commands);
+  if (numCommands == 1) {
+    char *singleCommand = commands[0];
+    char *tokenized[1024];
+    char *tokensplit[1] = {" "}; // for now, only split on spaces
+    int numTokens = getCommands(singleCommand, tokensplit, 1, tokenized);
+    printf("%s", tokenized[0]);
+  } else {
+    for (int i = 0; i < numCommands; i++) {
+      process_command(commands[i]);
+    }
+  }
+}
+
+
 
 void displayDirectoryName(int newLine) {
   char cwd[1024];
