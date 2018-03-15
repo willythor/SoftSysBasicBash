@@ -14,7 +14,7 @@ void loop() {
   char *input;
   displayDirectoryName(0);
   int success;
-  while (matcher(input = readLine()) != QUIT) {
+  while (matcher(input = readLineTab()) != QUIT) {
     success = SUCCESS;
     if (matcher(input) == LS) {
       if (ls() == FAILURE) {
