@@ -53,13 +53,13 @@ int getCommands(
       char *token = tokens[j];
       if (substring_match_on_end(substring, token)) {
         substring[i - substringStart - strlen(token) + 1] = '\0';
-        commands[numCommands++] = substring;
+        if (strlen(substring) > 0) commands[numCommands++] = substring;
         substring = malloc(sizeof(char) * slen + 1);
         substringStart = i + 1;
       }
     }
   }
   substring[slen - substringStart] = '\0';
-  commands[numCommands++] = substring;
+  if (strlen(substring) > 0) commands[numCommands++] = substring;
   return numCommands;
 }
