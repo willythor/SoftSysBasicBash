@@ -1,10 +1,10 @@
 
 char* concat(const char *s1, const char *s2);
 
-int ls();
-char* displayDirectoryName(int newLine);
+char *ls(char *input);
+void displayDirectoryName(int newLine);
 
-int cd(char *loc);
-void process_command(char *command);
+char *cd(char *loc);
+char* process_command(char *command, char *prevCommandOutput);
 
 
