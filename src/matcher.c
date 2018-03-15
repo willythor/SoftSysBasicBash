@@ -5,6 +5,19 @@
 
 #include "../include/matcher.h"
 
+int matcher(char *input) {
+  if (strcmp(input, "quit") == 0) {
+    return QUIT;
+  }
+  if (strncmp(input, "cd", 2) == 0) {
+    return CD;
+  }
+  if (strncmp(input, "ls", 2) == 0) {
+    return LS;
+  }
+  return 1;
+}
+
 // return true if substring matches token at the end
 bool substring_match_on_end(char *substring, char *token) {
   int l1 = strlen(substring);

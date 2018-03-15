@@ -5,3 +5,5 @@ int getCommands(
     int numtokens,
     char **commands
     );
+
+int matcher(char *input);
