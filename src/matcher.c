@@ -49,17 +49,22 @@ int getCommands(
   char *substring = malloc(sizeof(char) * slen + 1); // +1 for the null-term
   for (int i = 0; i < slen; i++) {
     substring[i - substringStart] = userInput[i];
+    substring[i - substringStart + 1] = '\0';
     for (int j = 0; j < numtokens; j++) {
       char *token = tokens[j];
       if (substring_match_on_end(substring, token)) {
         substring[i - substringStart - strlen(token) + 1] = '\0';
-        if (strlen(substring) > 0) commands[numCommands++] = substring;
+        if (strlen(substring) > 0) {
+          commands[numCommands++] = substring;
+        }
         substring = malloc(sizeof(char) * slen + 1);
         substringStart = i + 1;
       }
     }
   }
   substring[slen - substringStart] = '\0';
-  if (strlen(substring) > 0) commands[numCommands++] = substring;
+  if (strlen(substring) > 0) {
+    commands[numCommands++] = substring;
+  }
   return numCommands;
 }
