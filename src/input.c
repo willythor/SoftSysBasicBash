@@ -11,13 +11,13 @@ char *readLine() {
   char c;
   // Loop until c is EOF or a newline char
   while ((c = getchar()) != EOF && c != '\n') {
-    lineSize++;
     // Need to leave one char on the end for the terminator
     if (lineSize == lineCapacity) {
       lineCapacity *= 2;
       line = realloc(line, sizeof(char) * lineCapacity);
     }
-    line[lineSize - 1] = c;
+    line[lineSize] = c;
+    lineSize++;
   }
   line[lineSize] = '\0';
   return line;
