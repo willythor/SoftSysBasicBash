@@ -85,8 +85,42 @@ dir1
 
 and the shell is in `dir1`, `ls` produces `dir2`. We can do `ls | cd`, which feeds `dir1` to `cd`, and moves us into `dir2`. (We realize this is not actually how `|` works, it was just one way to get some functionality working in the time we had for this project).
 
+### Tab completion
+
+Our shell supports tab auto-complete. This allows a user to enter the begining of a filename or folder and press tab and have the shell autocomplete with a probable filename/directory.
+
+An example of this is as follows:
+
+```
+willAndDave@basicBash:~/home/willem/Documents/School/SoftSys/BasicBash$ ls
+.
+README.md
+src
+.git
+Makefile
+basicbash
+obj
+reviewable.js
+include
+reports
+..
+.gitignore
+
+willAndDave@basicBash:~/home/willem/Documents/School/SoftSys/BasicBash$ cd s
+```
+
+At this point, if the user presses tab, the shell will autocomplete the command as follows:
+```
+willAndDave@basicBash:~/home/willem/Documents/School/SoftSys/BasicBash$ cd src
+```
+Since `src` is the only entry that begins with 's'.
+
 ### Learning Goals Evaluation
 
 #### David
 
 I would say I ended up solidly in the middle. I got waaaaay more comfortable with pointers, as I got to write functions that took in `**char`, and it wasn't terrifying. C sometimes blows my mind still, and it seems like incredibly simple things are really tough. I also realized I'm still a little fuzzy on how function arguments work (and how functions can actually modify arguments in a way that is visible to the caller, ie, taking an input string and pointing it at another string).
+
+#### Will
+
+My understanding of pointers has steadily increased throughout the course of this project. It is not quite at the **point** where I'd like it to be, but I'm definitely way better off than I was at the start of this project. As for understanding the inner workings of a terminal, I think I fell a little short. Instead of calling commands such as `ls` and `cd` we wrote our own commands, which I felt provided us with more learning opportunity, but less of an understanding of how the bash shell works. Lastly, my overall comfort with C has increased a tiny bit. I ran into a lot of trouble with header files, specifically depricated libraries and libraries that weren't cross-platform compatible. This was especially the case when it came to commands such as `getch()` -- a command that allows us to monitor user key-input as opposed to just a buffer from `stdin`. This helped grow my overall understanding of debugging and C libraries.
