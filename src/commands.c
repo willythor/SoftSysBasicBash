@@ -39,7 +39,6 @@ int ls() {
   return FAILURE;
 }
 
-
 int cd(char *loc) {
   if (loc == NULL) return FAILURE;
 
@@ -50,6 +49,24 @@ int cd(char *loc) {
   success = chdir(directory);
   free(directory);
   return (success == 0) ? SUCCESS : FAILURE;
+}
+
+char* tabComplete(char *input) {
+  DIR *d;
+  struct dirent *dir;
+  d = opendir(".");
+
+  if (d) {
+    while ((dir = readdir(d)) != NULL) {
+      if (strncmp(dir->d_name, input, strlen(input)) == 0) {
+        return dir->d_name;  
+      }
+    }
+    closedir(d);
+  }
+  //returning this because returning just "" is a constant char
+  //and hard to deallocate
+  return input;
 }
 
 
