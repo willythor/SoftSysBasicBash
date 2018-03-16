@@ -12,7 +12,7 @@
 
 void loop() {
   displayDirectoryName(0);
-  while (strcmp(process_command(readLine(), ""), "quit") != 0) {
+  while (strcmp(process_command(readLineTab(), ""), "quit") != 0) {
     printf("\n");
     displayDirectoryName(0);
   }

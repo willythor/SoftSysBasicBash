@@ -80,6 +80,34 @@ char* process_command(char *command, char* prevCommandOutput) {
   }
 }
 
+char* searchDirectory(char *input) {
+  DIR *d;
+  struct dirent *dir;
+  d = opendir(".");
+
+  if (d) {
+    while ((dir = readdir(d)) != NULL) {
+      if (strncmp(dir->d_name, input, strlen(input)) == 0) {
+        return dir->d_name;  
+      }
+    }
+    closedir(d);
+  }
+
+  return input;
+}
+
+char* tabComplete(char *input) {
+ switch (matcher(input)) {
+  case LS:
+    return concat("ls ", searchDirectory(input + 3));
+  case CD:
+    return concat("cd ", searchDirectory(input + 3));
+  default:
+    return searchDirectory(input);
+  }
+}
+
 
 
 void displayDirectoryName(int newLine) {

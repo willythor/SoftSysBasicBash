@@ -1,2 +1,3 @@
 
 char *readLine();
+char *readLineTab();
